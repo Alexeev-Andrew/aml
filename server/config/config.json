@@ -1,0 +1,10 @@
+{
+  "jwt_secret_key": "8S3GnHqFh4qTEf7D4owly4I4sFsW63TmnyjacIV10WpfEXw9tb",
+  "jwt_token_expire": "24h",
+  "jwt_refresh_token_expire": "48h",
+  "db": {
+    "base_url": "localhost",
+    "username": "root",
+    "password": "Vaao095037448182"
+  }
+}

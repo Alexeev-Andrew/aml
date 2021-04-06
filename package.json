@@ -1,0 +1,64 @@
+{
+  "name": "aml",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run prod",
+    "server": "node ./dist/bin/www",
+    "transpile": "babel ./server --out-dir dist --source-maps inline --copy-files",
+    "clean": "rimraf dist",
+    "dev": "npm-run-all build server",
+    "prod": "npm-run-all build server",
+    "build": "npm-run-all clean transpile",
+    "watch:dev": "nodemon"
+  },
+  "dependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-async-to-generator": "^7.13.0",
+    "@babel/runtime": "^7.13.10",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-preset-env": "^1.7.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "~1.9.1",
+    "mysql": "^2.16.0",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "regenerator-runtime": "^0.13.7",
+    "rimraf": "^3.0.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "babel-preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "nodemonConfig": {
+    "exec": "npm run dev",
+    "watch": [
+      "server/*",
+      "public/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
